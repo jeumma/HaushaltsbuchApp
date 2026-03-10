@@ -6,6 +6,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const CATEGORIES = {
   einnahme: ["Gehalt", "Nebenjob", "Investition", "Erstattung", "Sonstiges"],
@@ -50,6 +51,7 @@ const SAMPLE = [
 ];
 
 export default function App() {
+  const insets = useSafeAreaInsets();
   const [records, setRecords] = useState(SAMPLE);
   const [view, setView] = useState("uebersicht");
   const [form, setForm] = useState({ type: "ausgabe", amount: "", category: "Lebensmittel", memo: "", date: today() });
@@ -321,7 +323,7 @@ export default function App() {
       </ScrollView>
 
       {/* Bottom nav */}
-      <View style={styles.nav}>
+      <View style={[styles.nav, { paddingBottom: insets.bottom + 8 }]}>
         {[
           { id: "uebersicht", label: "Übersicht", icon: "◈" },
           { id: "neu", label: "Neu", icon: "+", accent: true },
@@ -421,7 +423,7 @@ const styles = StyleSheet.create({
   catAmount: { fontSize: 13, color: "#c86020", fontWeight: "500" },
   barBg: { backgroundColor: "#f0ece3", borderRadius: 99, height: 4, overflow: "hidden" },
   barFill: { height: "100%", backgroundColor: "#e8a060", borderRadius: 99 },
-  nav: { flexDirection: "row", backgroundColor: "rgba(250,248,243,0.98)", borderTopWidth: 1, borderTopColor: "#e8e3d8", paddingBottom: Platform.OS === "ios" ? 16 : 8, paddingTop: 8 },
+  nav: { flexDirection: "row", backgroundColor: "rgba(250,248,243,0.98)", borderTopWidth: 1, borderTopColor: "#e8e3d8", paddingTop: 8 },
   navBtn: { flex: 1, alignItems: "center", paddingVertical: 6 },
   navBtnAccent: { backgroundColor: "#1a2e17", borderRadius: 12, marginHorizontal: 12 },
   navIcon: { fontSize: 20, color: "#b0a898" },

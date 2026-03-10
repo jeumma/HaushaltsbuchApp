@@ -9,31 +9,27 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1a2e17"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
+      "icon": "./assets/icon.png",
       "package": "com.jeumma.HaushaltsbuchApp"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "@react-native-community/datetimepicker"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "56c4af0f-0816-415f-aeae-f8a74f7dd0c8"
-      }
-    },
-    "owner": "jeumma"
-  }
+    "package": "com.jeumma.HaushaltsbuchApp"
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  },
+  "plugins": [
+    "@react-native-community/datetimepicker"
+  ],
+  "extra": {
+    "eas": {
+      "projectId": "56c4af0f-0816-415f-aeae-f8a74f7dd0c8"
+    }
+  },
+  "owner": "jeumma"
 }
