@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+
 const CATEGORIES = {
   einnahme: ["Gehalt", "Nebenjob", "Investition", "Erstattung", "Sonstiges"],
   ausgabe: ["Lebensmittel", "Miete", "Transport", "Shopping", "Gesundheit", "Freizeit", "Abonnements", "Restaurant", "Sonstiges"],
@@ -69,13 +70,13 @@ export default function App() {
         if (saved) setRecords(JSON.parse(saved));
         const savedId = await AsyncStorage.getItem("nextId");
         if (savedId) setNextId(parseInt(savedId));
-      } catch (e) {}
+      } catch (e) { }
     })();
   }, []);
 
   // Save whenever records change
   useEffect(() => {
-    AsyncStorage.setItem("records", JSON.stringify(records)).catch(() => {});
+    AsyncStorage.setItem("records", JSON.stringify(records)).catch(() => { });
   }, [records]);
 
   const currentMonth = selectedMonth;
@@ -104,7 +105,7 @@ export default function App() {
     setRecords(newRecords);
     const newId = nextId + 1;
     setNextId(newId);
-    AsyncStorage.setItem("nextId", String(newId)).catch(() => {});
+    AsyncStorage.setItem("nextId", String(newId)).catch(() => { });
     setForm({ type: "ausgabe", amount: "", category: "Lebensmittel", memo: "", date: today() });
     setView("uebersicht");
   };
