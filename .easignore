@@ -1,0 +1,3 @@
+**/.cache
+**/*.sock
+**/dbus-*
